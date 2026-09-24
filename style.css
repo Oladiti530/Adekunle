@@ -585,59 +585,91 @@ li:hover{
 
 /* Tablet 768px max width  */
 
-@media(max-width: 768px){
-    body{
-        background-color: rgba(255, 0, 0, 0.425);
 
-    }
-    .lorem-12{
-        margin-left: 130px;
-        
-    }
-    .div-img1{
-    display: flex;
-    
-}
-ul{
-    width: 700px;
-    gap: 60px;
-    font-size: 1rem;
-}
-.read-button {
-    background-color: rgba(231, 222, 222, 0.541);
-    border: 2px solid rgb(255, 255, 255);
-    color: rgb(31, 31, 122);
-    font-size: 1rem;
-    padding: 10px 25px;
-    margin-left: 265px;
-    margin-top: 30px;
-    border-radius: 50px;
-}
-.wlc {
-    font-size: 1.5rem;
-}
-.wlc-lorem {
-    font-size: 0.8rem;
-    width: 600px;
-}
+/* ============================================================
+   Responsive layer — phone, tablet, desktop
+   ============================================================ */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img,video{max-width:100%;height:auto}
+
+/* Fluid replacements for the fixed widths and margin-left centering */
+.lorem-12{width:min(500px,90%);margin-left:auto;margin-right:auto}
+.wlc-lorem{width:min(600px,90%);margin-left:auto;margin-right:auto}
+.lorem-paragraph{width:min(500px,90%);margin-left:auto;margin-right:auto}
+.head-1{padding:0 clamp(16px,4vw,80px)}
+ul{width:auto}
+
+/* Stats row and portfolio images: wrap and scale instead of running off screen */
+.sect-5{flex-wrap:wrap}
+.div-img1,.div-img2{flex-wrap:wrap;justify-content:center}
+.image1,.image2,.image3{width:300px;max-width:100%}
+
+@media(max-width:1024px){
+  .sect-5{gap:0 10px}
+  .div-img1,.div-img2{gap:10px}
+  .image1,.image2,.image3{width:min(300px,45vw)}
 }
 
-/* Responsiveness */
-
-/* Mobile lag 425px max width  */
-
-@media(max-width: 425px){
-    #opn{
-        display: inline;
-    }
-    ul{
-        width: 400px;
-    }
-    .the-head{
-        
-    }
+@media(max-width:1024px){
+  .head-1{justify-content:space-between}
+  ul{gap:26px;font-size:1.05rem}
+  .game-dev{font-size:3rem;padding-top:150px}
+  .sect-3{flex-wrap:wrap}
+  .sect-3 .story{flex:1 1 320px}
+  .main-4{flex-wrap:wrap;justify-content:center;gap:0 30px}
+  .div-divide2,.div-divide1{margin-left:0}
 }
 
+@media(max-width:768px){
+  /* header: swap the inline list for the hamburger */
+  .head-1{height:60px;padding:0 18px}
+  .head-1 > ul{display:none}
+  #open{display:block;cursor:pointer}
+  #close{display:none;cursor:pointer}
+  .head-1.is-open #open{display:none}
+  .head-1.is-open #close{display:block}
+  .menu-div{width:min(300px,calc(100vw - 20px));top:60px;right:10px;border-radius:12px;overflow:hidden}
+  .menu-div.is-open{display:block}
+  .menu-div li{padding:0 10px}
+  .menu-div li:hover{background:#1f1f7a}
 
+  .sect-1{height:auto;min-height:520px;padding-bottom:60px}
+  .game-dev{font-size:2.2rem;padding-top:120px;line-height:1.2}
+  .lorem-12{font-size:.95rem;margin-top:16px}
+  .get-started{margin-top:28px}
+  .swap-div1,.swap-div2{display:none}
 
+  .wlc{font-size:1.5rem}
+  .wlc-lorem{font-size:.9rem}
+  .read-button{margin-left:auto;margin-right:auto;display:block}
 
+  .sect-3{flex-direction:column}
+  .story{padding:36px 22px}
+  .story h2{font-size:1.5rem;margin-bottom:18px}
+
+  .head-services{font-size:1.5rem}
+  .main-4{flex-direction:column;align-items:center;padding:0 18px}
+  .div-divide,.div-divide1,.div-divide2,.div-divide3{margin-left:0;width:100%;max-width:340px}
+  .div-divide01,.div-divide02,.div-divide03,.div-divide11,.div-divide12,.div-divide13,
+  .div-divide21,.div-divide22,.div-divide23,.div-divide31,.div-divide32,.div-divide33{width:100%;height:auto;min-height:40px;align-items:center}
+  .main-img{flex-wrap:wrap;justify-content:center;padding:0 18px}
+  .sect-5{padding:10px 0}
+  .div-sect5,.div-sect51,.div-sect52,.div-sect53{padding:22px 10px;flex:1 1 44%;text-align:center}
+  .div-sect5 img,.div-sect51 img,.div-sect52 img,.div-sect53 img{margin-left:0}
+  .div-sect5 span,.div-sect51 span,.div-sect52 span,.div-sect53 span{margin-left:0}
+  #circled{position:static}
+  .image1,.image2,.image3{width:min(300px,46vw)}
+  .div-img1,.div-img2{gap:8px}
+  .mail-1{text-align:center;padding:0 18px;font-size:.85rem}
+}
+
+@media(max-width:480px){
+  .one-page{font-size:1.2rem}
+  .game-dev{font-size:1.8rem;padding-top:105px}
+  .lorem-12{font-size:.9rem}
+  .get-started{padding:13px 22px;font-size:.9rem}
+  .story{padding:30px 18px}
+  .story p{font-size:.85rem}
+}
